@@ -40,8 +40,9 @@ public class TaskController {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("A data de início deve ser menor que a data de término");
     }
 
-    var task = this.taskRepository.save(taskModel);
-    return ResponseEntity.status(HttpStatus.CREATED).body(task);
+    this.taskRepository.save(taskModel);
+    
+    return ResponseEntity.status(HttpStatus.CREATED).body(null);
   }
 
   @GetMapping("/")
